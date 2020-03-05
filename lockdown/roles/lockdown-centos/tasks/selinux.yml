@@ -1,0 +1,6 @@
+---
+- name: SELinux | Enable
+  selinux:
+    policy: targeted
+    state: enforcing
+  tags: [selinux]

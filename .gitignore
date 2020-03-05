@@ -1,0 +1,9 @@
+# Python virtualenvs
+venv
+.venv
+
+# Ansible stuff
+*.retry
+
+# I mark my own hosts files with this suffix
+*.local

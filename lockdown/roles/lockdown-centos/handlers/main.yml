@@ -1,0 +1,10 @@
+---
+- name: Reload sshd
+  service: name=sshd state=reloaded
+
+- name: Reload fail2ban
+  service: name=fail2ban state=reloaded
+
+- name: Reload firewalld
+  service: name=firewalld state=reloaded
+  tags: [firewalld]
