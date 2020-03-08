@@ -7,3 +7,6 @@ venv
 
 # I mark my own hosts files with this suffix
 *.local
+
+# Very specific to this one recipe
+postfix-relay/group_vars/all.yml
