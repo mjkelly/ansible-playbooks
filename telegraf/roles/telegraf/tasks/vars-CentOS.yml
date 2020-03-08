@@ -1,0 +1,3 @@
+---
+has_firewalld: true
+is_centos: true

@@ -1,0 +1,5 @@
+---
+- name: Install/configure Telegraf
+  hosts: all
+  roles:
+    - telegraf

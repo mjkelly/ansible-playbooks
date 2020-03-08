@@ -1,0 +1,10 @@
+---
+- include_vars: vars.yml
+- name: vars | OS-Specific
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "vars-{{ ansible_distribution }}-{{ ansible_distribution_major_version}}.yml"
+    - "vars-{{ ansible_distribution }}.yml"
+  tags: [vars]
+- import_tasks: telegraf.yml
+- import_tasks: firewalld.yml
