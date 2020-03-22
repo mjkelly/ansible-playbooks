@@ -1,0 +1,5 @@
+---
+# To be overridden by OS-specific vars-* files
+is_centos: false
+is_ubuntu: false
+has_firewalld: false

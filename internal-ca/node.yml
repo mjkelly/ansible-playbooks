@@ -1,0 +1,5 @@
+---
+- name: Distribute certs to nodes
+  hosts: all
+  roles:
+    - node

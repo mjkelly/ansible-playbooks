@@ -1,0 +1,6 @@
+---
+ansible_become: true
+# This won't work for Centos 7 hosts. Set
+# ansible_python_interpreter=/usr/bin/python in the hosts file if you have
+# individual Centos 7 hosts.
+ansible_python_interpreter: /usr/bin/python3

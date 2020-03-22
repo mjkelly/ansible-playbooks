@@ -1,0 +1,7 @@
+[all]
+foo.example.com
+# Optionally, you may want to set the user:
+#foo2.example.com ansible_become=true ansible_user=mkelly
+# If you don't have python3 (or can't use it, such as on Centos 7 hosts), you
+# can set the python interpreter:
+#foo3.example.com ansible_python_interpreter=/usr/bin/python

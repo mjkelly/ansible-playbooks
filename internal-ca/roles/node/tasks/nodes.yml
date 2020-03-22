@@ -1,0 +1,30 @@
+---
+- name: Create dir
+  file:
+    path: /etc/tls
+    state: directory
+    mode: 0755
+
+- name: Copy CA crt
+  copy:
+    src: "tls/michaelkelly.org-ca.crt"
+    dest: "/etc/tls/node-ca.crt"
+    mode: 0444
+
+- name: Copy node crt
+  copy:
+    src: "tls/{{ inventory_hostname }}.crt"
+    dest: "/etc/tls/node.crt"
+    mode: 0444
+
+- name: Copy node key
+  copy:
+    src: "tls/{{ inventory_hostname }}.key"
+    dest: "/etc/tls/node.key"
+    mode: 0440
+
+- name: Copy node pem
+  copy:
+    src: "tls/{{ inventory_hostname }}.pem"
+    dest: "/etc/tls/node.pem"
+    mode: 0440
