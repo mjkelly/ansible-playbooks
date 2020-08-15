@@ -1,10 +1,10 @@
 ---
 - name: Write main.cf
-  template: src=main.cf.j2 dest=/etc/postfix/main.cf
+  template: src=main.cf.j2 dest=/etc/postfix/main.cf mode=644
   notify: [Reload postfix]
 
 - name: Write relay_password
-  template: src=relay_password.j2 dest=/etc/postfix/relay_password
+  template: src=relay_password.j2 dest=/etc/postfix/relay_password mode=600
   notify: [Reload postfix]
   register: etc_postfix_relay_password
 
@@ -13,7 +13,7 @@
   when: etc_postfix_relay_password is changed
 
 - name: Write virtual
-  template: src=virtual.j2 dest=/etc/postfix/virtual
+  template: src=virtual.j2 dest=/etc/postfix/virtual mode=644
   notify: [Reload postfix]
   register: etc_postfix_virtual
 
