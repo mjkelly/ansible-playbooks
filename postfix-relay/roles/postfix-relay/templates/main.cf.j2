@@ -41,8 +41,8 @@ mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
 #mailbox_command = procmail -a "$EXTENSION"
 mailbox_size_limit = 0
 recipient_delimiter = +
-# We listen on port 25, but only from localhost!
-inet_interfaces = 127.0.0.1
+# We listen on port 25, but only from localhost (TCPv4 and TCPv6)
+inet_interfaces = loopback-only
 # Fold if mydomain (default value is `hostname -d`) is example.com, this
 # will rewrite addresses @foo.example.com to be @example.com.
 # See http://www.postfix.org/ADDRESS_REWRITING_README.html#masquerade
