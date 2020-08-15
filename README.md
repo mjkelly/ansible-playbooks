@@ -6,7 +6,7 @@ I use virtualenv for this stuff. Here's the initial setup:
 
 ```
 python3 -m venv venv
-./venv3/bin/pip install -r requirements.txt
+./venv/bin/pip install -r requirements.txt
 ```
 
 You can do either of the following things when you want to use ansible:
