@@ -43,9 +43,14 @@ mailbox_size_limit = 0
 recipient_delimiter = +
 # We listen on port 25, but only from localhost!
 inet_interfaces = 127.0.0.1
-# This sets the default hostname when sending mail, e.g. via mailx. Machine
-# short hostname is added to this domain.
-mydomain = {{ domain }}
+# Fold if mydomain (default value is `hostname -d`) is example.com, this
+# will rewrite addresses @foo.example.com to be @example.com.
+# See http://www.postfix.org/ADDRESS_REWRITING_README.html#masquerade
+# If you have multiple machines on this domain, loses some information -- but,
+# it greatly simplifies SES configuration.
+# 
+# There is probably a fancy way to preserve the exact hostnames in the headers.
+masquerade_domains = $mydomain
 
 ##############################################################################
 # This section determines which addresses to rewrite.
