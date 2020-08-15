@@ -1,6 +1,8 @@
 ---
-- name: Reload postfix
-  service: name=postfix state=reloaded
+# It would be nie to reload here, but we set inet_interfaces in main.cf, which
+# requires a restart. So we're cautious and always restart.
+- name: Restart postfix
+  service: name=postfix state=restarted
 
 - name: Update relay_password
   command: postmap /etc/postfix/relay_password
