@@ -39,5 +39,6 @@
 - name: service | Start
   systemd:
     state: started
+    enabled: yes
     daemon_reload: yes
     name: node_exporter
