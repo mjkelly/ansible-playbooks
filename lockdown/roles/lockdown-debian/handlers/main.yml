@@ -4,3 +4,6 @@
 
 - name: Reload fail2ban
   service: name=fail2ban state=reloaded
+
+- name: Reload ufw
+  shell: ufw reload

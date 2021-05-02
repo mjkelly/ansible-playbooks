@@ -1,0 +1,29 @@
+---
+- name: ufw | Install
+  package: name=ufw state=present
+  tags: [ufw]
+  when: debian10
+
+- name: ufw | Configure v4
+  template: src=ufw-user.rules.j2 dest=/etc/ufw/user.rules mode=0640
+  notify: [Reload ufw]
+  tags: [ufw]
+  when: debian10
+
+- name: ufw | Configure v6
+  template: src=ufw-user6.rules.j2 dest=/etc/ufw/user6.rules mode=0640
+  notify: [Reload ufw]
+  tags: [ufw]
+  when: debian10
+
+- name: ufw | Get status
+  shell: "ufw status | head -n 1 | awk '{print $2}'"
+  changed_when: False
+  register: ufw_status
+  tags: [ufw]
+  when: debian10
+
+- name: ufw | Enable
+  shell: ufw --force enable
+  tags: [ufw]
+  when: debian10 and ufw_status.stdout != "active"
