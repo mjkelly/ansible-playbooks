@@ -1,0 +1,8 @@
+---
+- name: locales-all | Install
+  package:
+    name: locales-all
+    state: present
+    update_cache: true
+  tags: [auto-updates]
+  when: debian10
