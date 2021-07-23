@@ -25,13 +25,8 @@ domain:
 # interface and permitting an address range, you will be an open relay for that
 # address range.
 # 
-# This is intended for things like docker hosts that want to relay mail from
-# containers.
+# This is configuration that you may wish to vary by host group. There is an
+# example docker.yml that shows how to let docker hosts act as smarthosts for
+# their containers.
 listen_interfaces: loopback-only
 extra_permitted_networks: 
-# Here's an example for docker:
-# Get this address from the address of the docker0 interface:
-# extra_listen_interfaces: 172.17.0.1
-# This is a private network range:
-# https://www.arin.net/reference/research/statistics/address_filters/
-#extra_permitted_networks: 172.16.0.0/12
