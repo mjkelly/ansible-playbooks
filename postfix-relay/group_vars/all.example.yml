@@ -18,3 +18,20 @@ localhost_relay_email:
 # <hostname>.<domain>
 # I set this to the common domain all my personal machines are in.
 domain: 
+
+# This lets you listen on extra interfaces if you want to. BEWARE of listening
+# on public interfaces! With this configuration, you must be *both* listening on an interface and
+# permitting the source address to relay mail. If you *are* listening on an
+# interface and permitting an address range, you will be an open relay for that
+# address range.
+# 
+# This is intended for things like docker hosts that want to relay mail from
+# containers.
+listen_interfaces: loopback-only
+extra_permitted_networks: 
+# Here's an example for docker:
+# Get this address from the address of the docker0 interface:
+# extra_listen_interfaces: 172.17.0.1
+# This is a private network range:
+# https://www.arin.net/reference/research/statistics/address_filters/
+#extra_permitted_networks: 172.16.0.0/12

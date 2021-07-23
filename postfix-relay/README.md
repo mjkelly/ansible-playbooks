@@ -21,6 +21,9 @@ Then, you'll get the following:
 2. All email will be delivered to the the value of `localhost_relay_email` in
    `group_vars/all.yml`.  The original recipient will still appear in headers.
 
+There are some other configuration parameters that should allow docker hosts to
+serve as smarthost for their containers, as well.
+
 ## Why it is this way
 
 This is how I run my home setup, and I think it has these advantages:
