@@ -6,3 +6,6 @@ foo.example.com ansible_become=true
 # If you don't have a python binary named 'python' (such as if you're on a
 # python3-only system!), you can set the python interpreter:
 #foo3.example.com ansible_become=true ansible_python_interpreter=/usr/bin/python3
+[docker]
+# You can add hosts that host docker containers here. Check out
+# group_vars/docker.yml for the overrides used for docker hosts.
