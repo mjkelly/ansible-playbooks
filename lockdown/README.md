@@ -4,19 +4,21 @@ Make a copy of `hosts.example` that includes the hosts you want to configure.
 This requires a user with passwordless sudo by default. (It uses
 `ansible_become`.)
 
+It currently works only for Debian. There used to be a CentOS version, but I
+haven't maintained it.
+
 ## WARNING
 
-If you rely on the root password to administer your server(s) (via `su`), or
-logging in as root via ssh, do not apply this recipe. We disable the root
-password and disallow root from logging in via ssh.
+This is a fairly aggressive playbook I use for my own purposes. It may not be
+suitable for you. Specifically:
 
-We check that you aren't using root to run ansible (which implies you have some
-other user who can sudo, so you won't lock yourself out), but that isn't a
-perfect check.
+- We lock the root password
+- We disable password login for all users
+- We firewall off all ports except 22
 
-## Configuration
-
-Check `group_vars/all.yml` for config options.
+We do check that you aren't using root to run ansible (which implies you have
+some other user who can sudo) so you won't lock yourself out, but that isn't a
+perfect check and you could still lock yourself out other ways.
 
 ## Running
 

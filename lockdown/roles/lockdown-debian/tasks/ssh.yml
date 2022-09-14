@@ -6,11 +6,8 @@
   failed_when: sudo_user.stdout == '' or sudo_user.stdout == 'root'
   tags: [ssh, check]
 
-- name: ssh | Disallow root login
-  lineinfile:
-    path: /etc/ssh/sshd_config
-    regexp: "^#?\\w*PermitRootLogin"
-    line: "PermitRootLogin no"
+- name: ssh | Disallow passwords and root login
+  template: src=sshd_config.j2 dest=/etc/ssh/sshd_config.d/90-ansible-lockdown.conf mode=0640
   register: sshd_config
   notify: [Reload sshd]
   tags: [ssh]

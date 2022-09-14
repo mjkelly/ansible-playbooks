@@ -13,6 +13,3 @@
 - import_tasks: ssh.yml
 - import_tasks: ufw.yml
 - import_tasks: auto-updates.yml
-# We must put fail2ban after firewalld because fail2ban relies on setting some
-# firewalld state.
-- import_tasks: fail2ban.yml

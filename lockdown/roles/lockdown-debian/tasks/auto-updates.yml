@@ -4,12 +4,10 @@
 - name: unattended-upgrades | Install
   package: name=unattended-upgrades state=present
   tags: [auto-updates]
-  when: debian10
 
 - name: apt-listchanges | Install
   package: name=apt-listchanges state=present
   tags: [auto-updates]
-  when: debian10
 
 - name: unattended-upgrades | Configure
   ansible.builtin.debconf:
@@ -18,4 +16,3 @@
     value: "true"
     vtype: boolean
   tags: [auto-updates]
-  when: debian10

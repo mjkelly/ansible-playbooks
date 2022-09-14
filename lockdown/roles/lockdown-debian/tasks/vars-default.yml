@@ -1,4 +1,1 @@
 ---
-# We set these to true in OS-specific vars-* files.
-debian10: false
-fail2ban_iptables: true
