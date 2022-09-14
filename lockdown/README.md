@@ -14,11 +14,15 @@ suitable for you. Specifically:
 
 - We lock the root password
 - We disable password login for all users
-- We firewall off all ports except 22
+- We firewall off all ports except 22 (by default)
 
 We do check that you aren't using root to run ansible (which implies you have
 some other user who can sudo) so you won't lock yourself out, but that isn't a
 perfect check and you could still lock yourself out other ways.
+
+## Configuration
+
+`group_vas/all.yaml` contains configuration options.
 
 ## Running
 

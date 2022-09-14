@@ -1,1 +1,5 @@
 ---
+# We open these ports on both v4 and v6.
+open_ports:
+  - port: 22
+    proto: tcp

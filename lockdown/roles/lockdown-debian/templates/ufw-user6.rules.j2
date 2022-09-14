@@ -17,9 +17,11 @@
 :ufw6-user-limit-accept - [0:0]
 ### RULES ###
 
-### tuple ### allow tcp 22 ::/0 any ::/0 in
--A ufw6-user-input -p tcp --dport 22 -j ACCEPT
+{% for port in open_ports %}
+### tuple ### allow {{ port.proto }} {{ port.port }} ::/0 any ::/0 in
+-A ufw6-user-input -p {{ port.proto }} --dport {{ port.port }} -j ACCEPT
 
+{% endfor %}
 ### END RULES ###
 
 ### LOGGING ###
