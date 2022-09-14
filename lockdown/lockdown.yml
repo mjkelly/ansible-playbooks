@@ -1,9 +1,4 @@
 ---
-- name: lockdown | CentOS
-  hosts: centos
-  roles:
-    - lockdown-centos
-
 - name: lockdown | Debian
   hosts: debian
   roles:
