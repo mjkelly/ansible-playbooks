@@ -8,5 +8,7 @@ venv
 # I mark my own hosts files with this suffix
 *.local
 
-# Very specific to this one recipe
-postfix-relay/group_vars/all.yml
+# My own local overrides.
+**/group_vars/all.yml
+#lockdown/group_vars/all.yml
+#postfix-relay/group_vars/all.yml

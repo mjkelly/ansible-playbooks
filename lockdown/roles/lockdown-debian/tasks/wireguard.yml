@@ -1,0 +1,19 @@
+---
+- name: wireguard | Install
+  package: name=wireguard state=present
+  tags: [wireguard]
+
+- name: wireguard | /etc/wireguard/wg0.conf
+  template: src=wireguard.conf.j2 dest=/etc/wireguard/wg0.conf mode=0600
+  tags: [wireguard]
+  notify: [Reload wireguard]
+
+- name: wireguard | /etc/sysctl.d/wg.conf
+  template: src=wireguard-sysctl.j2 dest=/etc/sysctl.d/wg0.conf mode=0600
+  tags: [wireguard]
+  notify: [Reload sysctls]
+
+- name: wireguard | Start
+  service:
+    name: wg-quick@wg0
+    state: started

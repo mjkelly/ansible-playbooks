@@ -11,5 +11,7 @@
 - import_tasks: setup.yml
 - import_tasks: rootpw.yml
 - import_tasks: ssh.yml
-- import_tasks: ufw.yml
+- import_tasks: iptables.yml
+- import_tasks: wireguard.yml
+  when: "wireguard"
 - import_tasks: auto-updates.yml

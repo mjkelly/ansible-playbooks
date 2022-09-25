@@ -1,0 +1,27 @@
+---
+open_ports:
+  - port: 22
+    proto: tcp
+
+# Install wireguard and set the host up to route wireguard packets?
+# We set up wg0 only. This setup is for a server, so we allow multiple
+# peers but we don't set addresses for any of them. They have to connect
+# to us!
+wireguard: true
+# This is your main network device -- when traffic leaves this machine, which
+# device does it go through?
+#wireguard_nat_device: ens3
+#wireguard_listen_port: 8408
+# Generate this on a machine with wireguard by running:
+# wg genkey
+wireguard_private_key: "<output of 'wg genkey'>"
+# Address of wireguard device, in CIDR notation. (E.g., 192.168.2.1/24)
+wireguard_address: 192.168.2.1/24
+# You can list as many peers as you want. 
+wireguard_peers:
+# PublicKey value for this peer.
+- public_key: "<get this from the output of 'wg' on the client>"
+  # AllowedIPs value for this peer
+  allowed_ips: 192.168.2.0/24
+  # PersistentKeepalive value for this peer (0 disables)
+  persistent_keepalive: 25

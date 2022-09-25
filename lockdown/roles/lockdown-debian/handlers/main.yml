@@ -2,5 +2,11 @@
 - name: Reload sshd
   service: name=sshd state=reloaded
 
-- name: Reload ufw
-  shell: ufw reload
+- name: Reload iptables
+  shell: /sbin/lockdown-iptables-restore
+
+- name: Reload sysctls
+  shell: sysctl --system
+
+- name: Reload wireguard
+  service: name=wg-quick@wg0 state=reloaded

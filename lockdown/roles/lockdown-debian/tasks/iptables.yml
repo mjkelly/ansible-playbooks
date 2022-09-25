@@ -1,0 +1,17 @@
+---
+- name: iptables | /sbin/lockdown-iptables-restore
+  template: src=lockdown-iptables-restore.j2 dest=/sbin/lockdown-iptables-restore mode=0755
+  tags: [iptables]
+
+- name: iptables | /sbin/lockdown-iptables-save
+  template: src=lockdown-iptables-save.j2 dest=/sbin/lockdown-iptables-save mode=0755
+  tags: [iptables]
+
+- name: iptables | /etc/network/if-pre-up.d/lockdown-iptables
+  template: src=network-iptables-hook.j2 dest=/etc/network/if-pre-up.d/lockdown-iptables mode=0755
+  tags: [iptables]
+
+- name: iptables | Configure
+  template: src=lockdown-iptables.rules.j2 dest=/etc/lockdown-iptables.rules mode=0644
+  notify: [Reload iptables]
+  tags: [iptables]

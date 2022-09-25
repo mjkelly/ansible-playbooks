@@ -1,0 +1,12 @@
+---
+# Reasonable defaults. Don't change these, change ../vars/main.yml.
+open_ports:
+  - port: 22
+    proto: tcp
+
+wireguard: false
+wireguard_nat_device: ens3
+# There is nothing special about this. I picked it at random.
+wireguard_listen_port: 8408
+wireguard_address: 192.168.2.1/24
+wireguard_peers: []
