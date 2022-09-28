@@ -11,7 +11,14 @@
   template: src=network-iptables-hook.j2 dest=/etc/network/if-pre-up.d/lockdown-iptables mode=0755
   tags: [iptables]
 
+# v4 rules
 - name: iptables | Configure
   template: src=lockdown-iptables.rules.j2 dest=/etc/lockdown-iptables.rules mode=0644
+  notify: [Reload iptables]
+  tags: [iptables]
+
+# v6 rules
+- name: iptables | Configure
+  template: src=lockdown-ip6tables.rules.j2 dest=/etc/lockdown-ip6tables.rules mode=0644
   notify: [Reload iptables]
   tags: [iptables]

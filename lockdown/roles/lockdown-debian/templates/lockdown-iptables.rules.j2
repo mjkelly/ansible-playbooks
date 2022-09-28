@@ -33,6 +33,6 @@
 -A INPUT -j LOGGING
 
 # On debian this will appear in /var/log/kern.log.
--A LOGGING -m limit --limit 10/min -j LOG --log-prefix "IPTables Dropped: " --log-level 7
+-A LOGGING -m limit --limit 10/min -j LOG --log-prefix "IPTables Drop: " --log-level 7
 -A LOGGING -j DROP
 COMMIT
