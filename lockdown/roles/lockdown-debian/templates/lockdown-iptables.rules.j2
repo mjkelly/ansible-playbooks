@@ -25,7 +25,13 @@
 -A INPUT -p udp -m udp --dport {{ wireguard_listen_port }} -j ACCEPT
 {% endif %}
 
+# Packet types to drop without logging. We do this because they're noisy in
+# logs and uninteresting to us.
+-A INPUT -m pkttype --pkt-type broadcast -j DROP
+
+# Everything else is destined to be dropped. We log it first.
 -A INPUT -j LOGGING
+
 # On debian this will appear in /var/log/kern.log.
 -A LOGGING -m limit --limit 10/min -j LOG --log-prefix "IPTables Dropped: " --log-level 7
 -A LOGGING -j DROP
